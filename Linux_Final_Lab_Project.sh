@@ -46,7 +46,8 @@ destDirAbsPath=$(pwd)
 # [TASK 7]
 cd "$origAbsPath" || exit # <-
 cd "$targetDirectory" || exit # <-
-
+echo "PWD: $(pwd)"
+ls -la
 # [TASK 8]
 yesterdayTS=$((currentTS - 24 * 60 * 60))
 
@@ -54,16 +55,19 @@ declare -a toBackup
 
 for file in * # [TASK 9]
 do
-  # [TASK 10]
-  if [[`date -r $file +%s` -gt $yesterdayTS]]
-  then
-    # [TASK 11]
-    toBackup+=($file)
-  fi
+    # [TASK 10]
+    if [[ $(date -r "$file" +%s) -gt $yesterdayTS ]]
+    then
+        # [TASK 11]
+        toBackup+=("$file")
+    fi
 done
 
+# echo "Array contents: ${toBackup[@]}"
+# echo "Array size: ${#toBackup[@]}"
 # [TASK 12]
+tar -czvf $backupFileName ${toBackup[@]}
 
 # [TASK 13]
-
+mv "$backupFileName" "$destDirAbsPath"
 # Congratulations! You completed the final project for this course!
