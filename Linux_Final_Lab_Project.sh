@@ -44,20 +44,21 @@ cd "$destinationDirectory" || exit # <- added the exit in case it fails
 destDirAbsPath=$(pwd) 
 
 # [TASK 7]
-cd # <-
-cd # <-
+cd "$origAbsPath" || exit # <-
+cd "$targetDirectory" || exit # <-
 
 # [TASK 8]
-yesterdayTS=
+yesterdayTS=$((currentTS - 24 * 60 * 60))
 
 declare -a toBackup
 
-for file in  # [TASK 9]
+for file in * # [TASK 9]
 do
   # [TASK 10]
-  if (())
+  if [[`date -r $file +%s` -gt $yesterdayTS]]
   then
     # [TASK 11]
+    toBackup+=($file)
   fi
 done
 
