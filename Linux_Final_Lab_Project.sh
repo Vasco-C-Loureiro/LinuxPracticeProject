@@ -71,3 +71,27 @@ tar -czvf $backupFileName ${toBackup[@]}
 # [TASK 13]
 mv "$backupFileName" "$destDirAbsPath"
 # Congratulations! You completed the final project for this course!
+
+
+
+theia@theia-vascovlourei:/home/project$ ls -l backup.sh
+-rwxr--r-- 1 theia users 1624 Mar 13 01:31 backup.sh
+
+
+theia@theia-vascovlourei:/home/project$ ls -l
+total 60
+-rw-r--r-- 1 theia users 4423 Mar 13 01:34 backup-1773380076.tar.gz
+-rw-r--r-- 1 theia users 4423 Mar 13 01:45 backup-1773380725.tar.gz
+-rw-rw-r-- 1 theia users 4423 Mar 13 01:48 backup-1773380881.tar.gz
+-rw-rw-r-- 1 theia users 4423 Mar 13 01:49 backup-1773380941.tar.gz
+-rw-r--r-- 1 theia users   66 Mar 13 01:38 backup-script-copy
+-rwxr--r-- 1 theia users 1624 Mar 13 01:31 backup.sh
+drwxr-sr-x 2 theia users 4096 Mar 13 01:49 important-documents
+-rw-r--r-- 1 theia users 4995 Sep 28  2022 important-documents.zip
+drwxr-sr-x 2 theia users 4096 Mar 13 01:31 test_destination
+drwxr-sr-x 2 theia users 4096 Mar 13 01:41 test_target
+
+
+theia@theia-vascovlourei:/home/project$ sudo cp backup.sh /usr/local/bin/
+theia@theia-vascovlourei:/home/project$ ls -l /usr/local/bin/backup.sh
+-rwxr-xr-x 1 root root 1624 Mar 13 01:56 /usr/local/bin/backup.sh
